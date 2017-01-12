@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: f97f5e62de4cc0e4d904909cab08b13e
+timeCreated: 1472849446
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bSpearman_Walk_UpL_strip10_0
+    21300002: bSpearman_Walk_UpL_strip10_1
+    21300004: bSpearman_Walk_UpL_strip10_2
+    21300006: bSpearman_Walk_UpL_strip10_3
+    21300008: bSpearman_Walk_UpL_strip10_4
+    21300010: bSpearman_Walk_UpL_strip10_5
+    21300012: bSpearman_Walk_UpL_strip10_6
+    21300014: bSpearman_Walk_UpL_strip10_7
+    21300016: bSpearman_Walk_UpL_strip10_8
+    21300018: bSpearman_Walk_UpL_strip10_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bSpearman_Walk_UpL_strip10_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 7
+        width: 140
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 63}
+        - {x: -56, y: 0}
+        - {x: -55, y: -3}
+        - {x: -48, y: -11}
+        - {x: -40, y: -14}
+        - {x: -44, y: -14}
+        - {x: -47, y: -11}
+        - {x: -49, y: -11}
+        - {x: -50, y: -9}
+        - {x: -61, y: -6}
+        - {x: -70, y: -12}
+        - {x: -70, y: -26}
+        - {x: -43, y: -63}
+        - {x: 53, y: -63}
+        - {x: 70, y: -25}
+        - {x: 70, y: 4}
+        - {x: 24, y: 63}
+    - name: bSpearman_Walk_UpL_strip10_1
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 3
+        width: 143
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 64.5}
+        - {x: -39.5, y: 46.5}
+        - {x: -71.5, y: -2.5}
+        - {x: -71.5, y: -24.5}
+        - {x: -46.5, y: -64.5}
+        - {x: 47.5, y: -64.5}
+        - {x: 71.5, y: -38.5}
+        - {x: 71.5, y: 1.5}
+        - {x: 25.5, y: 64.5}
+    - name: bSpearman_Walk_UpL_strip10_2
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 0
+        width: 142
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 65}
+        - {x: -71, y: -2}
+        - {x: -71, y: -19}
+        - {x: -44, y: -61}
+        - {x: -29, y: -65}
+        - {x: 49, y: -65}
+        - {x: 71, y: -27}
+        - {x: 71, y: 25}
+        - {x: 17, y: 65}
+    - name: bSpearman_Walk_UpL_strip10_3
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1
+        width: 139
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51.5, y: -1}
+        - {x: -43.5, y: -10}
+        - {x: -42.5, y: -10}
+        - {x: -52.5, y: -5}
+        - {x: -61.5, y: -4}
+        - {x: -69.5, y: -7}
+        - {x: -69.5, y: -42}
+        - {x: -45.5, y: -65}
+        - {x: 69.5, y: -65}
+        - {x: 69.5, y: 26}
+        - {x: 37.5, y: 65}
+        - {x: -12.5, y: 65}
+        - {x: -40.5, y: 37}
+        - {x: -53.5, y: 1}
+    - name: bSpearman_Walk_UpL_strip10_4
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 7
+        width: 133
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -66.5, y: -33}
+        - {x: -57.5, y: -63}
+        - {x: 66.5, y: -63}
+        - {x: 66.5, y: 14}
+        - {x: 20.5, y: 63}
+        - {x: -21.5, y: 63}
+        - {x: -49.5, y: 58}
+        - {x: -66.5, y: 29}
+    - name: bSpearman_Walk_UpL_strip10_5
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 13
+        width: 141
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 60.5}
+        - {x: -70.5, y: 60.5}
+        - {x: -70.5, y: -60.5}
+        - {x: 52.5, y: -60.5}
+        - {x: 61.5, y: -59.5}
+        - {x: 70.5, y: -31.5}
+        - {x: 70.5, y: -16.5}
+        - {x: 28.5, y: 58.5}
+    - name: bSpearman_Walk_UpL_strip10_6
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 9
+        width: 143
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.5, y: 60.5}
+        - {x: 21.5, y: 56.5}
+        - {x: 19.5, y: 51.5}
+        - {x: -10.5, y: 66.5}
+        - {x: -20.5, y: 66.5}
+        - {x: -17.5, y: 59.5}
+        - {x: -10.5, y: 51.5}
+        - {x: -70.5, y: 9.5}
+        - {x: -71.5, y: 7.5}
+        - {x: -71.5, y: 1.5}
+        - {x: -59.5, y: -6.5}
+        - {x: -40.5, y: -40.5}
+        - {x: -25.5, y: -60.5}
+        - {x: -7.5, y: -66.5}
+        - {x: 60.5, y: -66.5}
+        - {x: 64.5, y: -62.5}
+        - {x: 71.5, y: -36.5}
+        - {x: 71.5, y: -18.5}
+        - {x: 39.5, y: 56.5}
+    - name: bSpearman_Walk_UpL_strip10_7
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 6
+        width: 143
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 45.5, y: 68}
+        - {x: -19.5, y: 68}
+        - {x: -20.5, y: 65}
+        - {x: -11.5, y: 53}
+        - {x: -71.5, y: 19}
+        - {x: -71.5, y: -16}
+        - {x: -49.5, y: -55}
+        - {x: 9.5, y: -68}
+        - {x: 68.5, y: -68}
+        - {x: 71.5, y: -46}
+        - {x: 71.5, y: -15}
+        - {x: 51.5, y: 66}
+    - name: bSpearman_Walk_UpL_strip10_8
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 7
+        width: 141
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70.5, y: 64}
+        - {x: -70.5, y: -21}
+        - {x: -49.5, y: -37}
+        - {x: -33.5, y: -45}
+        - {x: -0.5, y: -61}
+        - {x: 16.5, y: -64}
+        - {x: 58.5, y: -64}
+        - {x: 70.5, y: -44}
+        - {x: 70.5, y: 64}
+    - name: bSpearman_Walk_UpL_strip10_9
+      rect:
+        serializedVersion: 2
+        x: 1505
+        y: 11
+        width: 137
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 61}
+        - {x: -30.5, y: 61}
+        - {x: -35.5, y: 56}
+        - {x: -30.5, y: 47}
+        - {x: -14.5, y: -4}
+        - {x: -65.5, y: 8}
+        - {x: -68.5, y: 5}
+        - {x: -68.5, y: -9}
+        - {x: -64.5, y: -32}
+        - {x: -28.5, y: -61}
+        - {x: 46.5, y: -61}
+        - {x: 46.5, y: -52}
+        - {x: 68.5, y: -32}
+        - {x: 68.5, y: 8}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

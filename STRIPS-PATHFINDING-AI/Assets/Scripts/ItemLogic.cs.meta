@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 6ad99e60a2f74e643895d754876d5c8e
+timeCreated: 1481577507
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ActiveSprite: {fileID: 21300000, guid: 33d4b380d7c7ff541b092785a7c478bd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

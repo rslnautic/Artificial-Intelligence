@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: b4c7281507cb96b41b184eb979d7876f
+timeCreated: 1472844771
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bSpearman_Walk_Down_strip10_0
+    21300002: bSpearman_Walk_Down_strip10_1
+    21300004: bSpearman_Walk_Down_strip10_2
+    21300006: bSpearman_Walk_Down_strip10_3
+    21300008: bSpearman_Walk_Down_strip10_4
+    21300010: bSpearman_Walk_Down_strip10_5
+    21300012: bSpearman_Walk_Down_strip10_6
+    21300014: bSpearman_Walk_Down_strip10_7
+    21300016: bSpearman_Walk_Down_strip10_8
+    21300018: bSpearman_Walk_Down_strip10_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bSpearman_Walk_Down_strip10_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 101
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34.5, y: -46}
+        - {x: 50.5, y: -8}
+        - {x: 50.5, y: 38}
+        - {x: 36.5, y: 66}
+        - {x: -0.5, y: 66}
+        - {x: -6.5, y: 64}
+        - {x: -50.5, y: 8}
+        - {x: -50.5, y: -44}
+        - {x: -45.5, y: -63}
+        - {x: -38.5, y: -66}
+        - {x: -27.5, y: -66}
+        - {x: -24.5, y: -55}
+        - {x: 4.5, y: -64}
+        - {x: 33.5, y: -54}
+    - name: bSpearman_Walk_Down_strip10_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 2
+        width: 102
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 51, y: 65}
+        - {x: -27, y: 65}
+        - {x: -51, y: 50}
+        - {x: -51, y: -53}
+        - {x: -36, y: -64}
+        - {x: -34, y: -65}
+        - {x: -28, y: -65}
+        - {x: -24, y: -58}
+        - {x: -1, y: -65}
+        - {x: 14, y: -65}
+        - {x: 19, y: -58}
+        - {x: 33, y: -48}
+        - {x: 51, y: 2}
+    - name: bSpearman_Walk_Down_strip10_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 102
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 66}
+        - {x: 13, y: 66}
+        - {x: 11, y: 64}
+        - {x: 10, y: 61}
+        - {x: 11, y: 63}
+        - {x: 11, y: 66}
+        - {x: -3, y: 66}
+        - {x: -51, y: 37}
+        - {x: -51, y: -48}
+        - {x: -42, y: -64}
+        - {x: -31, y: -66}
+        - {x: 31, y: -66}
+        - {x: 51, y: -4}
+        - {x: 51, y: 37}
+        - {x: 29, y: 63}
+    - name: bSpearman_Walk_Down_strip10_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1
+        width: 100
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 65}
+        - {x: -5, y: 65}
+        - {x: -50, y: 13}
+        - {x: -50, y: -33}
+        - {x: -34, y: -65}
+        - {x: 35, y: -65}
+        - {x: 50, y: -24}
+        - {x: 50, y: 50}
+    - name: bSpearman_Walk_Down_strip10_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1
+        width: 99
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32.5, y: 66}
+        - {x: -2.5, y: 66}
+        - {x: -44.5, y: 14}
+        - {x: -49.5, y: 4}
+        - {x: -49.5, y: -43}
+        - {x: -37.5, y: -66}
+        - {x: 30.5, y: -66}
+        - {x: 49.5, y: -29}
+        - {x: 49.5, y: 54}
+    - name: bSpearman_Walk_Down_strip10_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3
+        width: 95
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 65.5}
+        - {x: -47.5, y: 21.5}
+        - {x: -47.5, y: -54.5}
+        - {x: -42.5, y: -65.5}
+        - {x: 43.5, y: -65.5}
+        - {x: 47.5, y: -30.5}
+        - {x: 47.5, y: 65.5}
+    - name: bSpearman_Walk_Down_strip10_6
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 0
+        width: 94
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 66}
+        - {x: -29, y: 20}
+        - {x: -47, y: -1}
+        - {x: -47, y: -55}
+        - {x: -40, y: -66}
+        - {x: 41, y: -66}
+        - {x: 47, y: -32}
+        - {x: 47, y: 54}
+        - {x: 45, y: 66}
+    - name: bSpearman_Walk_Down_strip10_7
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 0
+        width: 93
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 65.5}
+        - {x: -46.5, y: 12.5}
+        - {x: -46.5, y: -64.5}
+        - {x: -44.5, y: -65.5}
+        - {x: 46.5, y: -65.5}
+        - {x: 46.5, y: 64.5}
+        - {x: 45.5, y: 65.5}
+    - name: bSpearman_Walk_Down_strip10_8
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 4
+        width: 92
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: 63.5}
+        - {x: 16, y: 63.5}
+        - {x: 10, y: 55.5}
+        - {x: -46, y: 10.5}
+        - {x: -46, y: -61.5}
+        - {x: -43, y: -63.5}
+        - {x: 46, y: -63.5}
+    - name: bSpearman_Walk_Down_strip10_9
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 1
+        width: 95
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31.5, y: 66}
+        - {x: 0.5, y: 66}
+        - {x: -47.5, y: 12}
+        - {x: -47.5, y: -35}
+        - {x: -40.5, y: -64}
+        - {x: -37.5, y: -66}
+        - {x: 37.5, y: -66}
+        - {x: 47.5, y: -4}
+        - {x: 47.5, y: 53}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

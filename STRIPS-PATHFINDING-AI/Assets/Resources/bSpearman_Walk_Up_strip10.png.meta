@@ -1,0 +1,316 @@
+fileFormatVersion: 2
+guid: 56a15e69fd387ed4b916bec0fad8215c
+timeCreated: 1472849375
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bSpearman_Walk_Up_strip10_0
+    21300002: bSpearman_Walk_Up_strip10_1
+    21300004: bSpearman_Walk_Up_strip10_2
+    21300006: bSpearman_Walk_Up_strip10_3
+    21300008: bSpearman_Walk_Up_strip10_4
+    21300010: bSpearman_Walk_Up_strip10_5
+    21300012: bSpearman_Walk_Up_strip10_6
+    21300014: bSpearman_Walk_Up_strip10_7
+    21300016: bSpearman_Walk_Up_strip10_8
+    21300018: bSpearman_Walk_Up_strip10_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bSpearman_Walk_Up_strip10_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 94
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 69.5}
+        - {x: 13, y: 68.5}
+        - {x: 1, y: 48.5}
+        - {x: -10, y: -3.5}
+        - {x: -4, y: -5.5}
+        - {x: 0, y: -1.5}
+        - {x: 3, y: 5.5}
+        - {x: 3, y: -20.5}
+        - {x: -33, y: 2.5}
+        - {x: -47, y: -2.5}
+        - {x: -47, y: -59.5}
+        - {x: -36, y: -69.5}
+        - {x: 37, y: -69.5}
+        - {x: 45, y: -63.5}
+        - {x: 47, y: -37.5}
+        - {x: 47, y: 52.5}
+        - {x: 32, y: 69.5}
+    - name: bSpearman_Walk_Up_strip10_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1
+        width: 95
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 69}
+        - {x: 0.5, y: 50}
+        - {x: -13.5, y: 0}
+        - {x: -9.5, y: -2}
+        - {x: -4.5, y: -2}
+        - {x: 0.5, y: 8}
+        - {x: 6.5, y: -19}
+        - {x: -30.5, y: 5}
+        - {x: -47.5, y: -1}
+        - {x: -47.5, y: -47}
+        - {x: -17.5, y: -69}
+        - {x: 26.5, y: -69}
+        - {x: 47.5, y: -59}
+        - {x: 47.5, y: 58}
+        - {x: 46.5, y: 69}
+    - name: bSpearman_Walk_Up_strip10_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 95
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.5, y: -68.5}
+        - {x: 21.5, y: -65.5}
+        - {x: 37.5, y: -31.5}
+        - {x: 47.5, y: -1.5}
+        - {x: 47.5, y: 34.5}
+        - {x: 33.5, y: 68.5}
+        - {x: 12.5, y: 68.5}
+        - {x: 1.5, y: 48.5}
+        - {x: -9.5, y: 15.5}
+        - {x: -14.5, y: -0.5}
+        - {x: -6.5, y: -4.5}
+        - {x: -32.5, y: 5.5}
+        - {x: -47.5, y: 1.5}
+        - {x: -47.5, y: -48.5}
+        - {x: -12.5, y: -67.5}
+        - {x: -10.5, y: -68.5}
+        - {x: -1.5, y: -68.5}
+        - {x: 1.5, y: -62.5}
+        - {x: 1.5, y: -60.5}
+        - {x: 1.5, y: -68.5}
+    - name: bSpearman_Walk_Up_strip10_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 93
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 53}
+        - {x: -13.5, y: -4}
+        - {x: -4.5, y: -8}
+        - {x: -30.5, y: 1}
+        - {x: -46.5, y: 1}
+        - {x: -46.5, y: -52}
+        - {x: -17.5, y: -69}
+        - {x: 30.5, y: -69}
+        - {x: 46.5, y: -61}
+        - {x: 46.5, y: 69}
+        - {x: 11.5, y: 69}
+        - {x: 9.5, y: 68}
+    - name: bSpearman_Walk_Up_strip10_4
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 3
+        width: 91
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: 68.5}
+        - {x: -45.5, y: 4.5}
+        - {x: -45.5, y: -68.5}
+        - {x: 45.5, y: -68.5}
+        - {x: 45.5, y: 68.5}
+    - name: bSpearman_Walk_Up_strip10_5
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 9
+        width: 94
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: 65.5}
+        - {x: 39, y: 69.5}
+        - {x: -3, y: 69.5}
+        - {x: -47, y: 17.5}
+        - {x: -47, y: -63.5}
+        - {x: -11, y: -69.5}
+        - {x: 40, y: -69.5}
+        - {x: 47, y: -55.5}
+        - {x: 47, y: 0.5}
+        - {x: 46, y: 12.5}
+    - name: bSpearman_Walk_Up_strip10_6
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 8
+        width: 95
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.5, y: -47}
+        - {x: 43.5, y: -49}
+        - {x: 47.5, y: -50}
+        - {x: 47.5, y: -8}
+        - {x: 41.5, y: 72}
+        - {x: 34.5, y: 75}
+        - {x: 17.5, y: 75}
+        - {x: -24.5, y: 22}
+        - {x: -47.5, y: -10}
+        - {x: -47.5, y: -62}
+        - {x: -34.5, y: -69}
+        - {x: 13.5, y: -75}
+        - {x: 34.5, y: -75}
+        - {x: 37.5, y: -69}
+        - {x: 36.5, y: -43}
+        - {x: 35.5, y: -36}
+    - name: bSpearman_Walk_Up_strip10_7
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 4
+        width: 96
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 77.5}
+        - {x: -30, y: 15.5}
+        - {x: -48, y: -7.5}
+        - {x: -48, y: -77.5}
+        - {x: 38, y: -77.5}
+        - {x: 46, y: -75.5}
+        - {x: 48, y: -68.5}
+        - {x: 48, y: 24.5}
+        - {x: 35, y: 77.5}
+    - name: bSpearman_Walk_Up_strip10_8
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 5
+        width: 94
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: -46.5}
+        - {x: 47, y: 29.5}
+        - {x: 41, y: 72.5}
+        - {x: 19, y: 72.5}
+        - {x: -27, y: 20.5}
+        - {x: -47, y: -6.5}
+        - {x: -47, y: -38.5}
+        - {x: -45, y: -54.5}
+        - {x: -40, y: -60.5}
+        - {x: -32, y: -59.5}
+        - {x: -28, y: -55.5}
+        - {x: 7, y: -72.5}
+        - {x: 38, y: -72.5}
+        - {x: 39, y: -36.5}
+        - {x: 41, y: -45.5}
+        - {x: 43, y: -46.5}
+    - name: bSpearman_Walk_Up_strip10_9
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 5
+        width: 92
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: -18.5}
+        - {x: 39, y: -16.5}
+        - {x: 39, y: -33.5}
+        - {x: 41, y: -38.5}
+        - {x: 46, y: -38.5}
+        - {x: 46, y: 61.5}
+        - {x: 37, y: 67.5}
+        - {x: 35, y: 62.5}
+        - {x: 33, y: 50.5}
+        - {x: 34, y: 56.5}
+        - {x: 31, y: 67.5}
+        - {x: 18, y: 67.5}
+        - {x: 15, y: 65.5}
+        - {x: -46, y: 7.5}
+        - {x: -46, y: -63.5}
+        - {x: -38, y: -67.5}
+        - {x: 34, y: -67.5}
+        - {x: 39, y: -61.5}
+        - {x: 39, y: -24.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
