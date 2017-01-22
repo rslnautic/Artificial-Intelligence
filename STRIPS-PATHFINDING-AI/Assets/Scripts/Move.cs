@@ -32,7 +32,7 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         
 
-        MindController = new RandomMind();
+		MindController = new MyMind();
     }
 
     public void MoveLeft()
