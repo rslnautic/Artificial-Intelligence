@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets
+namespace Assets.Scripts
 {
     public class Estado
     {
@@ -22,7 +22,8 @@ namespace Assets
         public bool EsMeta()
         {
 			if (isPositionInMap(Position)) {
-				return Map.GetTile (Position.x, Position.y) == GenerateMap.TileType.Goal;
+                GenerateMap.TileType currentTile = Map.GetTile((int)Position.x, (int)Position.y);
+                return currentTile == GenerateMap.TileType.Goal;
 			} else {
 				return false;
 			}
@@ -39,7 +40,7 @@ namespace Assets
         public override bool Equals(object obj)
         {
             var other = obj as Estado;
-			return other != null && (Position == other.Position && Map == other.Map && Accion == other.Accion);
+			return other != null && (Position == other.Position /*&& Map == other.Map && Accion == other.Accion*/);
             
         }
 
@@ -72,23 +73,23 @@ namespace Assets
             Estado estado;
 
 			// Move UP
-			estado = new Estado(Position + Vector2.up, Map, Accion);
-			if (!estado.Equals (this) && CanMoveToDirection (Move.MoveDirection.Up)) {
+			estado = new Estado(Position + Vector2.up, Map, Move.MoveDirection.Up);
+			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Down
-			estado = new Estado(Position + Vector2.down, Map, Accion);
-			if (!estado.Equals (this) && CanMoveToDirection (Move.MoveDirection.Down)) {
+			estado = new Estado(Position + Vector2.down, Map, Move.MoveDirection.Down);
+			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Left
-			estado = new Estado(Position + Vector2.left, Map, Accion);
-			if (!estado.Equals (this) && CanMoveToDirection (Move.MoveDirection.Left)) {
+			estado = new Estado(Position + Vector2.left, Map, Move.MoveDirection.Left);
+			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Right
-			estado = new Estado(Position + Vector2.right, Map, Accion);
-			if (!estado.Equals (this) && CanMoveToDirection (Move.MoveDirection.Right)) {
+			estado = new Estado(Position + Vector2.right, Map, Move.MoveDirection.Right);
+			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 

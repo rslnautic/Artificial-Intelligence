@@ -10,7 +10,7 @@ public class MainProgam : MonoBehaviour
     private BusquedaAmplitud _busqueda;
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Test de Busqueda!");
+        /*Debug.Log("Test de Busqueda!");
         _busqueda =new BusquedaAmplitud();
         Debug.Log(Time.time);
 	    Nodo resultado = _busqueda.Buscar(new Estado(0, 0, "Inicio"), new Estado(0, 2, "FINAL"));
@@ -22,7 +22,7 @@ public class MainProgam : MonoBehaviour
 	    else
 	    {
 	        Debug.Log("No se ha encontrado resultado");
-	    }
+	    }*/
 	}
 	
 	

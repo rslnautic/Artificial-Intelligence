@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts;
 
 public class MyMind : IMind {
 	
-	/*private BusquedaAmplitud _busqueda;
-	private Nodoo _resultado;*/
+	private BusquedaAmplitud _busqueda;
+	private Nodo _resultado = null;
+
+    private Move move;
+
+    public MyMind()
+    {
+        _busqueda = new BusquedaAmplitud();
+    }
 
 	public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
 	{
-		int val = Random.Range(0, 4);
-		if (val == 0) return Move.MoveDirection.Up;
-		if (val == 1) return Move.MoveDirection.Down;
-		if (val == 2) return Move.MoveDirection.Left;
-		return Move.MoveDirection.Right;
+		if(_resultado == null)
+        {
+            _resultado = _busqueda.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right));
+            return _resultado.Estado.Accion;
+        } else
+        {
+            _resultado = _resultado.Padre;
+            return _resultado.Estado.Accion;
+        }
 	}
 }

@@ -14,21 +14,22 @@ namespace Assets.Scripts
             Abiertos = new Queue<Nodo>();
         }
 
-        public Nodo Buscar(Estado inicio, Estado meta)
+        public Nodo Buscar(Estado inicio)
         {
-            inicio.Accion = "Inicio";
+            inicio.Accion = Move.MoveDirection.Right;
             Nodo inicial = new Nodo(inicio, null);
 
             Abiertos.Enqueue(inicial);
             while (Abiertos.Count>0)
             {
                 Nodo actual = Abiertos.Dequeue();
-                if (EsMeta(actual, meta))
+                if (EsMeta(actual))
                 {
                     return actual;
 
                 }
-                foreach (var nodo in actual.Expandir())
+                List<Nodo> actualExpandido = actual.Expandir();
+                foreach (var nodo in actualExpandido)
                 {
                     Abiertos.Enqueue(nodo);
                 }
@@ -36,9 +37,9 @@ namespace Assets.Scripts
             return null;
         }
 
-        public bool EsMeta(Nodo actual, Estado meta)
+        public bool EsMeta(Nodo actual)
         {
-            return actual.Estado.EsMeta(meta);
+            return actual.Estado.EsMeta();
         }
     }
 }
