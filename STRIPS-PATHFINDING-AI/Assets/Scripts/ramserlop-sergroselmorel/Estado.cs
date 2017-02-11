@@ -22,7 +22,7 @@ namespace Assets.Scripts
         public bool EsMeta()
         {
 			if (isPositionInMap(Position)) {
-                GenerateMap.TileType currentTile = Map.GetTile((int)Position.x, (int)Position.y);
+                GenerateMap.TileType currentTile = Map.GetTile((int)Position.y, (int)Position.x);
                 return currentTile == GenerateMap.TileType.Goal;
 			} else {
 				return false;
@@ -30,12 +30,23 @@ namespace Assets.Scripts
         }
 
 		private bool isPositionInMap(Vector2 position) {
-			if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows)) {
-				return true;
-			} else {
-				return false;
-			}
-		}
+            try
+            {
+                if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("Error a la hora de calcular posición");
+                return false;
+            }
+        }
 
         public override bool Equals(object obj)
         {

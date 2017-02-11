@@ -60,16 +60,24 @@ public class GenerateMap {
 	
     public TileType GetTile(int row, int col)
     {
-        if (row > rows || row < 0)
+        try
         {
-            throw new Exception("Row index out of bound");
-        }
-        if (col > cols || col < 0)
-        {
-            throw new Exception("Col index out of bound");
-        }
+            if (row > rows || row < 0)
+            {
+                throw new Exception("Row index out of bound");
+            }
+            if (col > cols || col < 0)
+            {
+                throw new Exception("Col index out of bound");
+            }
 
-        return GeneratedMap[col, row];
+            return GeneratedMap[col, row];
+        } catch(IndexOutOfRangeException ex)
+        {
+            Debug.Log("PETE");
+            return TileType.Empty;
+        }
+        
     } 
 
 
