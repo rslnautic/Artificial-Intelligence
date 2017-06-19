@@ -19,8 +19,7 @@ public class Move : MonoBehaviour
     {
         Random,
         Breadth,
-        PathFinding,
-        Strips
+        PathFinding
     }
 
     public MindType mind;
@@ -50,11 +49,13 @@ public class Move : MonoBehaviour
                 MindController = new BreadthMind();
                 break;
             case MindType.PathFinding:
+                MindController = new PathfindingMind();
+                break;
+            default:
                 MindController = new RandomMind();
                 break;
-            case MindType.Strips:
-                MindController = new RandomMind();
-                break;
+
+
         }
     }
 

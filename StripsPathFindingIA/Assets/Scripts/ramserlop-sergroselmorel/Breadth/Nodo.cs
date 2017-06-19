@@ -7,6 +7,7 @@ namespace Assets.Scripts
 {
     public class Nodo
     {
+        public static byte[,] mapNodeStatus = null;
         public Nodo Padre { get; set; }
         public Estado Estado { get; set; }
         public Nodo(Estado e, Nodo padre)
@@ -15,7 +16,7 @@ namespace Assets.Scripts
             Estado = e;
         }
 
-        public List<Nodo> Expandir()
+        public virtual List<Nodo> Expandir()
         {
             List<Estado> estadosDerivados = Estado.Expandir();
             //Eliminamos bucles simples
@@ -26,7 +27,11 @@ namespace Assets.Scripts
                 {
                     if (!Padre.Estado.Equals(estado))
                     {
-                        nodosExpandidos.Add(new Nodo(estado, this));
+                        if(mapNodeStatus[(int) estado.Position.x, (int) estado.Position.y] == 0)
+                        {
+                            nodosExpandidos.Add(new Nodo(estado, this));
+                            mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] = 1;
+                        }
                     }
                 }
                 else

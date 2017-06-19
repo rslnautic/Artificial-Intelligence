@@ -18,7 +18,11 @@ public class BreadthMind : IMind {
 	public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
 	{
 		if(_resultado == null)
-        {
+        {   
+            if(Nodo.mapNodeStatus == null)
+            {
+                Nodo.mapNodeStatus = new byte[map.cols,map.rows];
+            }
             _resultado = _busqueda.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right));
             return _resultado.Estado.Accion;
         } else
