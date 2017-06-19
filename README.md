@@ -1,2 +1,1 @@
-# STRIPS-PATHFINDING-AI
-STRIPS-PATHFINDING-AI
+# (Breadth - Pathfinding - Strips) - Algorithms
