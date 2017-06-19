@@ -23,8 +23,10 @@ public class Move : MonoBehaviour
         Strips
     }
 
+    public MindType mind;
     public Vector2 end;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    public float speed=1.0f;
     private GameManager gameManager;
 
     private Vector2 last;
@@ -33,14 +35,13 @@ public class Move : MonoBehaviour
 
     public bool keyControl = false;
     private float cooldown = 1.0f;
-
-    public MindType mind;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-        switch(mind)
+
+
+        switch (mind)
         {
             case MindType.Random:
                 MindController = new RandomMind();
@@ -144,7 +145,7 @@ public class Move : MonoBehaviour
         if (!AtDestination())
         {
             MoveNeed = false;
-            Vector2 pos = Vector2.Lerp(transform.position, end, Time.deltaTime*1f);
+            Vector2 pos = Vector2.Lerp(transform.position, end, Time.deltaTime*speed);
             rb.MovePosition(pos);
             
         }

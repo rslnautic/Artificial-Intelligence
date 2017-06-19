@@ -21,31 +21,31 @@ public class GenerateMap {
 	{
 	    this.rows = rows;
 	    this.cols = cols;
-        GeneratedMap = new TileType[rows,cols];
+        GeneratedMap = new TileType[cols,rows];
 
 	    for (int r = 0; r < rows; r++)
 	    {
 	        for (int c = 0; c < cols; c++)
 	        {
-	            if (board.GridObjects[r, c] == null)
+	            if (board.GridObjects[c, r] == null)
 	            {
-                    GeneratedMap[r, c] = TileType.Empty;
+                    GeneratedMap[c, r] = TileType.Empty;
                 }
 	            else
 	            {
 	                
 	            
-	                if (board.GridObjects[r, c].CompareTag("Goal"))
+	                if (board.GridObjects[c, r].CompareTag("Goal"))
 	                {
-	                    GeneratedMap[r,c]=TileType.Goal;
+	                    GeneratedMap[c,r]=TileType.Goal;
 	                }
-                    if (board.GridObjects[r, c].CompareTag("Wall"))
+                    if (board.GridObjects[c, r].CompareTag("Wall"))
                     {
-                        GeneratedMap[r, c] = TileType.Wall;
+                        GeneratedMap[c, r] = TileType.Wall;
                     }
-                    if (board.GridObjects[r, c].CompareTag("Item"))
+                    if (board.GridObjects[c, r].CompareTag("Item"))
                     {
-                        GeneratedMap[r, c] = TileType.Item;
+                        GeneratedMap[c, r] = TileType.Item;
                     }
                     
                 }
@@ -69,7 +69,7 @@ public class GenerateMap {
             throw new Exception("Col index out of bound");
         }
 
-        return GeneratedMap[row, col];
+        return GeneratedMap[col, row];
     } 
 
 

@@ -7,8 +7,8 @@ using System.Collections.Generic;
 
         public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
         private BoardManager boardScript;                       //Store a reference to our BoardManager which will set up the level.
-        private int level = 1;                                  //Current level number, expressed in game as "Day 1".
-
+        public int seed=2016;
+        public bool ForPlanner = false;
         public GenerateMap Map { get; set; }
         //Awake is always called before any Start functions
         void Awake()
@@ -31,15 +31,14 @@ using System.Collections.Generic;
             //Get a component reference to the attached BoardManager script
             boardScript = GetComponent<BoardManager>();
 
-            //Call the InitGame function to initialize the first level 
-            InitGame();
+            
         }
 
         //Initializes the game for each level.
-        void InitGame()
+        public void InitGame()
         {
             //Call the SetupScene function of the BoardManager script, pass it current level number.
-            boardScript.SetupScene(level);
+            boardScript.SetupScene(seed, ForPlanner);
             Map = new GenerateMap(boardScript.rows,boardScript.columns,boardScript);
         }
 
