@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
 
-public class MyMind : IMind {
+public class BreadthMind : IMind {
 	
 	private BusquedaAmplitud _busqueda;
 	private Nodo _resultado = null;
 
     private Move move;
 
-    public MyMind()
+    public BreadthMind()
     {
         _busqueda = new BusquedaAmplitud();
     }

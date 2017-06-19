@@ -15,6 +15,14 @@ public class Move : MonoBehaviour
         Right
     }
 
+    public enum MindType
+    {
+        Random,
+        Breadth,
+        PathFinding,
+        Strips
+    }
+
     public Vector2 end;
     public Rigidbody2D rb;
     private GameManager gameManager;
@@ -25,13 +33,28 @@ public class Move : MonoBehaviour
 
     public bool keyControl = false;
     private float cooldown = 1.0f;
+
+    public MindType mind;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
-
-        MindController = new RandomMind();
+        switch(mind)
+        {
+            case MindType.Random:
+                MindController = new RandomMind();
+                break;
+            case MindType.Breadth:
+                MindController = new BreadthMind();
+                break;
+            case MindType.PathFinding:
+                MindController = new RandomMind();
+                break;
+            case MindType.Strips:
+                MindController = new RandomMind();
+                break;
+        }
     }
 
     public void MoveLeft()
