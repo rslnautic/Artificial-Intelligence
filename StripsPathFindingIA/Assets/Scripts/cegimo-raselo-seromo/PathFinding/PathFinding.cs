@@ -14,7 +14,7 @@ public class PathFinding {
         Abiertos = new List<NodoPF>();
     }
 
-    public NodoPF Buscar(Estado inicio, Estado fin)
+    public List<NodoPF> Buscar(Estado inicio, Estado fin)
     {
         inicial = new NodoPF(inicio, null);
         final = new NodoPF(fin, null);
@@ -25,9 +25,21 @@ public class PathFinding {
             NodoPF actual = Abiertos.First();
             Abiertos.RemoveAt(0);
 
-            if (actual == final)
+            if (actual.Estado.Position == final.Estado.Position)
             {
-                return actual;
+                NodoPF n = actual;
+                List<NodoPF> normal = new List<NodoPF>();
+                List<NodoPF> reversed = new List<NodoPF>();
+                while (n != null)
+                {
+                    normal.Add(n);
+                    n = n.Padre;
+                }
+                for(int i = normal.Count; i > 0; i--)
+                {
+                    reversed.Add(normal[i-1]);
+                }
+                return reversed;
             }
             List<NodoPF> actualExpandido = actual.Expandir();
             foreach (var nodo in actualExpandido)

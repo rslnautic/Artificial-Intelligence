@@ -32,7 +32,8 @@ namespace Assets.Scripts
 		private bool isPositionInMap(Vector2 position) {
             try
             {
-                if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows))
+                if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows) 
+                    && Map.GetTile((int) position.y, (int) position.x) != GenerateMap.TileType.Wall)
                 {
                     return true;
                 }
