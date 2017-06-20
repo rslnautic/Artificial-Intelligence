@@ -17,17 +17,11 @@ public class PathfindingMind : IMind {
 
     public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
     {
-        if (_resultado == null)
-        {
-            /*if (NodoPF.mapNodeStatus == null)
-            {
-                NodoPF.mapNodeStatus = new byte[map.cols, map.rows];
-            }*/
+        if (_resultado == null){
             /*_resultado = _pathfinding.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right));
             return _resultado.Estado.Accion;*/
         }
-        else
-        {
+        else{
             /*_resultado = _resultado.Padre;
             return _resultado.Estado.Accion;*/
         }

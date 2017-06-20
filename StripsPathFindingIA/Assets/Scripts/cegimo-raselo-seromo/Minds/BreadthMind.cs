@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Assets.Scripts;
 
 public class BreadthMind : IMind {
@@ -18,7 +16,9 @@ public class BreadthMind : IMind {
 	public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
 	{
 		if(_resultado == null)
-        {   
+        {
+            // Initialize the matrix to 0 if it isn´t allready
+            // (this matrix represents the map and ensures the quality of the breadth algorithm. It maps the allready accessed nodes with a 1)
             if(Nodo.mapNodeStatus == null)
             {
                 Nodo.mapNodeStatus = new byte[map.cols,map.rows];

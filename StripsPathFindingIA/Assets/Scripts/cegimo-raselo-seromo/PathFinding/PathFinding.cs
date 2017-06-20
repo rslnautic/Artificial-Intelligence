@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEditor;
+﻿using System.Collections.Generic;
 using Assets.Scripts;
 
 
@@ -37,7 +33,7 @@ public class PathFinding {
         return null;
     }
 
-    void shortedInsert(NodoPF node)
+    void ShortedInsert(NodoPF node)
     {
 
     }
