@@ -1,25 +1,23 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.cegimo_raselo_seromo.Distance
+class Distance
 {
-    class Distance
+    // Manhattan distance
+    public static float ManhattanDistance(Vector2 a, Vector2 b)
     {
-        // Manhattan distance
-        public static float ManhattanDistance(Vector2 a, Vector2 b)
+        checked
         {
-            checked
-            {
-                return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
-            }
+            return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
         }
+    }
 
-        //Euclidean distance
-        public static float EuclideanDistance(Vector2 a, Vector2 b)
+    //Euclidean distance
+    public static float EuclideanDistance(Vector2 a, Vector2 b)
+    {
+        checked
         {
-            checked
-            {
-                return Vector2.Distance(a, b);
-            }
+            return Vector2.Distance(a, b);
         }
     }
 }
+

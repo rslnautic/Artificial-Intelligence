@@ -10,6 +10,16 @@ namespace Assets.Scripts
         public static byte[,] mapNodeStatus = null;
         public NodoPF Padre { get; set; }
         public Estado Estado { get; set; }
+        public float gCost = 0f;
+        public float hCost = 0f;
+
+        public float fCost {
+            get {
+                return gCost + hCost;
+            }
+        }
+
+
         public NodoPF(Estado e, NodoPF padre)
         {
             Padre = padre;
@@ -25,18 +35,24 @@ namespace Assets.Scripts
             {
                 if (Padre != null)
                 {
-                    if (!Padre.Estado.Equals(estado))
-                    {
-                        if (mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] == 0)
-                        {
-                            nodosExpandidos.Add(new NodoPF(estado, this));
-                            mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] = 1;
-                        }
-                    }
+                    //if (!Padre.Estado.Equals(estado))
+                    //{
+                        /*if (mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] == 0)
+                        {*/
+                        NodoPF node = new NodoPF(estado, this);
+                        node.gCost = Padre.gCost + 1;
+                        node.hCost = Distance.EuclideanDistance(estado.Position, PathFinding.final.Estado.Position);
+                        nodosExpandidos.Add(node);
+                        //mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] = 1;
+                        //}
+                    //}
                 }
                 else
                 {
-                    nodosExpandidos.Add(new NodoPF(estado, this));
+                    NodoPF node = new NodoPF(estado, this);
+                    node.gCost += 1;
+                    node.hCost = Distance.EuclideanDistance(estado.Position, PathFinding.final.Estado.Position);
+                    nodosExpandidos.Add(node);
                 }
             }
             return nodosExpandidos;

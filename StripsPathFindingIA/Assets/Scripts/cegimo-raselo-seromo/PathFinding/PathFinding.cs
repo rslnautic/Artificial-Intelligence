@@ -1,42 +1,48 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts;
 
 
 public class PathFinding {
 
-    public Queue<NodoPF> Abiertos { get; set; }
+    public List<NodoPF> Abiertos { get; set; }
+    public static NodoPF inicial;
+    public static NodoPF final;
+
     public PathFinding()
     {
-        Abiertos = new Queue<NodoPF>();
+        Abiertos = new List<NodoPF>();
     }
 
-    public NodoPF Buscar(Estado inicio)
+    public NodoPF Buscar(Estado inicio, Estado fin)
     {
-        inicio.Accion = Move.MoveDirection.Right;
-        NodoPF inicial = new NodoPF(inicio, null);
+        inicial = new NodoPF(inicio, null);
+        final = new NodoPF(fin, null);
 
-        Abiertos.Enqueue(inicial);
+        Abiertos.Add(inicial);
         while (Abiertos.Count > 0)
         {
-            NodoPF actual = Abiertos.Dequeue();
-            if (EsMeta(actual))
+            NodoPF actual = Abiertos.First();
+            Abiertos.RemoveAt(0);
+
+            if (actual == final)
             {
                 return actual;
-
             }
             List<NodoPF> actualExpandido = actual.Expandir();
             foreach (var nodo in actualExpandido)
             {
-                Abiertos.Enqueue(nodo);
+                Abiertos.Add(nodo);
             }
+            Abiertos = Abiertos.OrderBy(x => x.fCost).ToList();
         }
         return null;
     }
 
-    void ShortedInsert(NodoPF node)
+    /*void ShortedInsert(NodoPF node)
     {
 
-    }
+    }*/
 
     public bool EsMeta(NodoPF actual)
     {

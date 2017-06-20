@@ -10,44 +10,20 @@ public class PathfindingMind : IMind {
 
     private Move move;
 
-    private float[,] fstar = null;
-
     public PathfindingMind()
     {
         _pathfinding = new PathFinding();
-
-        //generation of heuristic distances
-        //From every node to the end (top tight)
     }
 
     public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
     {
-        if (fstar == null){
-            fstar = GenerateFStar(map);
-        }
         if (_resultado == null) {
-            /*_resultado = _pathfinding.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right));
-            return _resultado.Estado.Accion;*/
+            _resultado = _pathfinding.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right), new Estado(new Vector2(map.cols-1, map.rows-1), map, Move.MoveDirection.Right));
+            return _resultado.Estado.Accion; 
         }
         else {
-            /*_resultado = _resultado.Padre;
-            return _resultado.Estado.Accion;*/
+            _resultado = _resultado.Padre;
+            return _resultado.Estado.Accion;
         }
-
-        //PLACEHOLDER
-        return Move.MoveDirection.Right;
-    }
-
-    public float[,] GenerateFStar(GenerateMap map)
-    {
-
-        fstar = new float[map.cols, map.rows];
-
-        foreach (GenerateMap.TileType tile in map.GeneratedMap)
-        {
-
-        }
-
-        return fstar;
     }
 }
