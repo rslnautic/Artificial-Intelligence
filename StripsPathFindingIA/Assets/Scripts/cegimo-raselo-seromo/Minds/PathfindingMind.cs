@@ -20,6 +20,7 @@ public class PathfindingMind : IMind {
     {
         if (_resultados == null) {
             _resultados = _pathfinding.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right), new Estado(new Vector2(map.cols-1, map.rows-1), map, Move.MoveDirection.Right));
+            _resultados.RemoveAt(0);
         }
         NodoPF n = _resultados.First();
         _resultados.RemoveAt(0);

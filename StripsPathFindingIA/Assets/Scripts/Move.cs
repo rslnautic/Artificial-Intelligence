@@ -39,8 +39,8 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        MindController = new PathfindingMind();
-        /*switch (mind)
+        //MindController = new PathfindingMind();
+        switch (mind)
         {
             case MindType.Random:
                 MindController = new RandomMind();
@@ -54,7 +54,7 @@ public class Move : MonoBehaviour
             default:
                 MindController = new RandomMind();
                 break;
-        }*/
+        }
     }
 
     public void MoveLeft()
