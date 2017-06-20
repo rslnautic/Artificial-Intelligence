@@ -37,6 +37,11 @@ public class PathFinding {
         return null;
     }
 
+    void shortedInsert(NodoPF node)
+    {
+
+    }
+
     public bool EsMeta(NodoPF actual)
     {
         return actual.Estado.EsMeta();
