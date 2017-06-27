@@ -18,13 +18,20 @@ public class Strips {
 		goal = new State();
 
         //Le comunicamos a STRIPS cual es nuestro estado meta (compuesto de propiedades)
-		Jug4 goalProperty = new Jug4(2);
-		goal.properties.Add(goalProperty);
+        for (int i = 0; i <= 4; i++)
+        {
+            goal.properties.Add("Object_" + i);
+        }
 
-		// Rellenamos el array de operadores
-		validOperators = new List<Operator>();
+        // Rellenamos el array de operadores
+        validOperators = new List<Operator>();
 
-		for (int i = 1; i <= maxCapacityJ3; i++) {
+        for (int i = 1; i <= maxCapacityJ3; i++)
+        {
+            validOperators.Add(new EmptyJug3(i));
+        }
+
+        /*for (int i = 1; i <= maxCapacityJ3; i++) {
 			validOperators.Add(new EmptyJug3(i));
 		}
 
@@ -50,8 +57,8 @@ public class Strips {
 			for (int j = 0; j < maxCapacityJ3; j++) {
 				validOperators.Add(new PassJug4ToJug3(i,j));
 			}
-		}
-	}
+		}*/
+    }
 
     //Está prácticamente todo bien.
     //Excepto este método, que es el de la búsqueda recursiva

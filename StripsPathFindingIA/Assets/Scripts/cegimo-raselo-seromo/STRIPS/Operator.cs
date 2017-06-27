@@ -4,18 +4,18 @@ using UnityEngine;
 
 public abstract class Operator {
 	
-	protected List<Property> _addList;
-	protected List<Property> _preconditionsList;
-	protected List<Property> _eliminationsList;
+	protected List<string> _addList;
+	protected List<string> _preconditionsList;
+	protected List<string> _eliminationsList;
 
 	public Operator() {
-		_addList = new List<Property> ();
-		_preconditionsList = new List<Property> ();
-		_eliminationsList = new List<Property> ();
+		_addList = new List<string> ();
+		_preconditionsList = new List<string> ();
+		_eliminationsList = new List<string> ();
 	}
 
     //Comprueba si el operador contiene la propiedad property en la lista de adiciones.
-	public bool Produces(Property property){
+	public bool Produces(string property){
 		return _addList.Contains(property);
 	}
 
@@ -40,7 +40,7 @@ public abstract class Operator {
 
     //Runs through the operator precondition list to ensure it can be applied.
 	public bool isApplicable(State state) {
-		foreach(Property precondition in _preconditionsList) {
+		foreach(string precondition in _preconditionsList) {
 			if (!state.properties.Contains (precondition)) {
 				return false;
 			}
@@ -50,15 +50,15 @@ public abstract class Operator {
 
 
     //Getters for property addition and elimination lists and operator precondition lists.
-	public List<Property> getAddList() {
+	public List<string> getAddList() {
 		return _addList;
 	}
 
-	public List<Property> getPreconditionList() {
+	public List<string> getPreconditionList() {
 		return _preconditionsList;
 	}
 
-	public List<Property> getElminationList() {
+	public List<string> getElminationList() {
 		return _eliminationsList;
 	}
 }
