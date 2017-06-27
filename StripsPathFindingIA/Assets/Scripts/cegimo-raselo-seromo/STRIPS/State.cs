@@ -15,14 +15,15 @@ public class State {
 		properties = new List<string> (listOfProperties);
 	}
 
-    //
-	/*public State(int j3Liters, int j4Liters){
-		properties = new List<string>();
-
-		Jug3 Jug3 = new Jug3(j3Liters);
-		Jug4 Jug4 = new Jug4(j4Liters);
-
-		properties.Add(Jug3);
-		properties.Add(Jug4);
-	}*/
+    public bool Contains(List<string> ptrs)
+    {
+        foreach(string property in ptrs)
+        {
+            if(!properties.Contains(property))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

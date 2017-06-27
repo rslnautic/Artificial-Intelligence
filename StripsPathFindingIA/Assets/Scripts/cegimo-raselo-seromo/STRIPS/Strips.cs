@@ -8,28 +8,40 @@ public class Strips : MonoBehaviour {
 
 	public List<Operator> validOperators;
 
-	void Start() { 
-		// Seteamos el estado inicial
-		initialState = new State();
+    public struct ResultadoStrips
+    {
+        public State sMeta;
+        public List<Operator> planMeta;
+        public bool hayPlan;
+    }
+
+	void Start() {
+        Init();
+    }
+
+    private void Init()
+    {
+        // Seteamos el estado inicial
+        initialState = new State();
 
         // Seteamos nuestro goal
         goal = new State();
         ItemLogic goalLogic = GameObject.FindGameObjectWithTag("Goal").GetComponent<ItemLogic>();
-        
+
         foreach (GameObject ptr in goalLogic.Required)
         {
             goal.properties.Add(ptr.name);
-        }   
+        }
 
         // Rellenamos el array de operadores
         validOperators = new List<Operator>();
         List<GameObject> objsItem = new List<GameObject>(GameObject.FindGameObjectsWithTag("Item"));
 
-        for(int i = 0; i < objsItem.Count; i++)
+        for (int i = 0; i < objsItem.Count; i++)
         {
             ItemLogic itLogic = objsItem[i].GetComponent<ItemLogic>();
             List<string> itemProperties = new List<string>();
-            foreach(GameObject ptr in itLogic.Required)
+            foreach (GameObject ptr in itLogic.Required)
             {
                 itemProperties.Add(ptr.name);
             }
@@ -40,33 +52,39 @@ public class Strips : MonoBehaviour {
     //Está prácticamente todo bien.
     //Excepto este método, que es el de la búsqueda recursiva
     //De la solución
-	public List<Operator> Search(string property) {
-		/*State currentState = initialState;
-		List <Operator> possibleOperators = new List<Operator> ();
-
-		// compruebo si esta contenido el goal en el current state
-		if(goal.properties.Contains(property)) {
-            //Sale de la búsqueda
-            //Esto está mal.
-            return null;
-		}*/
-
-		/*foreach (Property property in goal.properties) {
-			List<Operator> operatorsThatProduceProperty = getOperatorsWithProperty(property);
-			foreach (Operator op in operatorsThatProduceProperty) {
-				if (op.isApplicable(currentState)){
-					op.Apply (currentState);
-                    possibleOperators.Add(op);
-				} else {
-					List<Property> preconditions = op.getPreconditionList ();
-					preconditions.RemoveAll (item => currentState.properties.Contains (item));
-					foreach(Property precondition in preconditions) {
-						Search(precondition);
-					}
-				}
-			}
-		}*/
-        return null;
+	public ResultadoStrips Search(State currentState, List<string> goals, List<Operator> plan) {
+        ResultadoStrips resultado; 
+        while (!currentState.Contains(goals))
+        {
+            // (1) elegimos property
+            foreach(string property in goals)
+            {
+                if(!currentState.properties.Contains(property))
+                {
+                    List<Operator> operatorsThatProduceProperty = getOperatorsWithProperty(property);
+                    foreach(Operator oprtr in operatorsThatProduceProperty)
+                    {
+                        // (3)
+                        
+                        resultado = Search(currentState, oprtr.getPreconditionList(), plan);
+                        currentState = resultado.sMeta;
+                        plan = resultado.planMeta;
+                        if (!resultado.hayPlan)
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            resultado.sMeta = oprtr.Apply(currentState);
+                            resultado.planMeta = plan;
+                            resultado.planMeta.Add(oprtr);
+                        }
+                        
+                    }
+                }
+            }
+        }
+        return 
 	}
 
 	public List<Operator> getOperatorsWithProperty(string property) {
