@@ -10,13 +10,13 @@ public class State {
 		properties = new List<string> ();
 	}
 
-    //Constructor con la lista de propiedades   (No se usa por ahora)
+    //Constructor con la lista de propiedades
 	public State(List<string> listOfProperties) {
 		properties = new List<string> (listOfProperties);
 	}
 
     //
-	public State(int j3Liters, int j4Liters){
+	/*public State(int j3Liters, int j4Liters){
 		properties = new List<string>();
 
 		Jug3 Jug3 = new Jug3(j3Liters);
@@ -24,5 +24,5 @@ public class State {
 
 		properties.Add(Jug3);
 		properties.Add(Jug4);
-	}
+	}*/
 }

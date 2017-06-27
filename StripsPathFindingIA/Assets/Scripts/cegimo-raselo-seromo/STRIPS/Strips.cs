@@ -2,79 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Strips {
+public class Strips : MonoBehaviour {
 	public State initialState;
 	public State goal;
 
 	public List<Operator> validOperators;
-	public static int maxCapacityJ3 = 3, maxCapacityJ4 = 4;
 
-	public Strips(State state) {
-
+	void Start() { 
 		// Seteamos el estado inicial
-		initialState = state;
+		initialState = new State();
 
-		// Seteamos nuestro goal
-		goal = new State();
-
-        //Le comunicamos a STRIPS cual es nuestro estado meta (compuesto de propiedades)
-        for (int i = 0; i <= 4; i++)
+        // Seteamos nuestro goal
+        goal = new State();
+        ItemLogic goalLogic = GameObject.FindGameObjectWithTag("Goal").GetComponent<ItemLogic>();
+        
+        foreach (GameObject ptr in goalLogic.Required)
         {
-            goal.properties.Add("Object_" + i);
-        }
+            goal.properties.Add(ptr.name);
+        }   
 
         // Rellenamos el array de operadores
         validOperators = new List<Operator>();
+        List<GameObject> objsItem = new List<GameObject>(GameObject.FindGameObjectsWithTag("Item"));
 
-        for (int i = 1; i <= maxCapacityJ3; i++)
+        for(int i = 0; i < objsItem.Count; i++)
         {
-            validOperators.Add(new EmptyJug3(i));
+            ItemLogic itLogic = objsItem[i].GetComponent<ItemLogic>();
+            List<string> itemProperties = new List<string>();
+            foreach(GameObject ptr in itLogic.Required)
+            {
+                itemProperties.Add(ptr.name);
+            }
+            validOperators.Add(new GoTo(i, objsItem[i].transform.position, itemProperties));
         }
-
-        /*for (int i = 1; i <= maxCapacityJ3; i++) {
-			validOperators.Add(new EmptyJug3(i));
-		}
-
-		for (int i = 1; i <= maxCapacityJ4; i++) {
-			validOperators.Add(new EmptyJug4(i));
-		}
-
-		for (int i = 0; i < maxCapacityJ3; i++) {
-			validOperators.Add(new FillJug3(i));
-		}
-
-		for (int i = 0; i < maxCapacityJ3; i++) {
-			validOperators.Add(new FillJug4(i));
-		}
-
-		for (int i = 1; i <= maxCapacityJ3; i++) {
-			for (int j = 0; j < maxCapacityJ4; j++) {
-				validOperators.Add(new PassJug3ToJug4(i,j));
-			}
-		}
-
-		for (int i = 1; i <= maxCapacityJ4; i++) {
-			for (int j = 0; j < maxCapacityJ3; j++) {
-				validOperators.Add(new PassJug4ToJug3(i,j));
-			}
-		}*/
     }
 
     //Está prácticamente todo bien.
     //Excepto este método, que es el de la búsqueda recursiva
     //De la solución
-	public List<Operator> Search(Property pro) {
-		State currentState = initialState;
+	public List<Operator> Search(string property) {
+		/*State currentState = initialState;
 		List <Operator> possibleOperators = new List<Operator> ();
 
 		// compruebo si esta contenido el goal en el current state
-		if(goal.properties.Contains(pro)) {
+		if(goal.properties.Contains(property)) {
             //Sale de la búsqueda
             //Esto está mal.
             return null;
-		}
+		}*/
 
-		foreach (Property property in goal.properties) {
+		/*foreach (Property property in goal.properties) {
 			List<Operator> operatorsThatProduceProperty = getOperatorsWithProperty(property);
 			foreach (Operator op in operatorsThatProduceProperty) {
 				if (op.isApplicable(currentState)){
@@ -88,11 +65,11 @@ public class Strips {
 					}
 				}
 			}
-		}
+		}*/
         return null;
 	}
 
-	public List<Operator> getOperatorsWithProperty(Property property) {
+	public List<Operator> getOperatorsWithProperty(string property) {
 		List<Operator> operatorList = new List<Operator>();
 		foreach (Operator op in validOperators) {
 			if (op.Produces(property)) {

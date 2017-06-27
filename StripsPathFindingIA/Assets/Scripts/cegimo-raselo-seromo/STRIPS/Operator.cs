@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Operator {
-	
-	protected List<string> _addList;
+
+    public Vector2 position;
+    protected List<string> _addList;
 	protected List<string> _preconditionsList;
 	protected List<string> _eliminationsList;
 
 	public Operator() {
-		_addList = new List<string> ();
+        position = new Vector2();
+        _addList = new List<string> ();
 		_preconditionsList = new List<string> ();
 		_eliminationsList = new List<string> ();
 	}
@@ -22,18 +24,20 @@ public abstract class Operator {
     //Aplica el operador al mundo, cambiando así sus propiedades
     //Añade y elimina propiedades para cambiar su estado
 	public State Apply(State state){
-		Delete(state);
-		Add(state);
-        //Devuelve el estado actualizado
-		return state;
+        // Clonamos object state
+        State s = new State(state.properties);
+		Delete(s);
+		Add(s);
+        //Devuelve el estado clonado actualizado
+		return s;
 	}
 
-	public void Delete(State state) {
+	private void Delete(State state) {
         //Elimina las propiedades del estado (que forman el mundo de ese estado) contenidas en la lista de eliminaciones del operador.
 		state.properties.RemoveAll(item => _eliminationsList.Contains(item));
 	}
 
-	public void Add(State state) {
+    private void Add(State state) {
         //Añade las propiedades del estado (que forman el mundo de ese estado) contenidas en la lista de eliminaciones del operador.
         state.properties.AddRange(_addList);
 	}
