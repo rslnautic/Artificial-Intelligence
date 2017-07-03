@@ -49,9 +49,6 @@ public class Strips : MonoBehaviour {
         }
     }
 
-    //Está prácticamente todo bien.
-    //Excepto este método, que es el de la búsqueda recursiva
-    //De la solución
 	public ResultadoStrips Search(State currentState, List<string> goals, List<Operator> plan) {
         ResultadoStrips resultado; 
         while (!currentState.Contains(goals))
@@ -84,8 +81,8 @@ public class Strips : MonoBehaviour {
                 }
             }
         }
-        return 
-	}
+        return resultado;
+    }
 
 	public List<Operator> getOperatorsWithProperty(string property) {
 		List<Operator> operatorList = new List<Operator>();
