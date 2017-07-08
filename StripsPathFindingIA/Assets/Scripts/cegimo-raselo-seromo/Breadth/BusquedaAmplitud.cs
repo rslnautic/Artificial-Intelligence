@@ -6,11 +6,9 @@ using UnityEditor;
 
 namespace Assets.Scripts
 {
-    public class BusquedaAmplitud
-    {
+    public class BusquedaAmplitud{
         public Queue<Nodo> Abiertos { get; set; }
-        public BusquedaAmplitud()
-        {
+        public BusquedaAmplitud(){
             Abiertos = new Queue<Nodo>();
         }
 
@@ -20,17 +18,13 @@ namespace Assets.Scripts
             Nodo inicial = new Nodo(inicio, null);
 
             Abiertos.Enqueue(inicial);
-            while (Abiertos.Count>0)
-            {
+            while (Abiertos.Count>0){
                 Nodo actual = Abiertos.Dequeue();
-                if (EsMeta(actual))
-                {
+                if (EsMeta(actual)){
                     return actual;
-
                 }
                 List<Nodo> actualExpandido = actual.Expandir();
-                foreach (var nodo in actualExpandido)
-                {
+                foreach (var nodo in actualExpandido){
                     Abiertos.Enqueue(nodo);
                 }
             }

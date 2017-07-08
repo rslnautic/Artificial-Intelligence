@@ -26,29 +26,16 @@ namespace Assets.Scripts
             Estado = e;
         }
 
-        public virtual List<NodoPF> Expandir()
-        {
+        public virtual List<NodoPF> Expandir(){
             List<Estado> estadosDerivados = Estado.Expandir();
-            //Eliminamos bucles simples
             List<NodoPF> nodosExpandidos = new List<NodoPF>();
-            foreach (var estado in estadosDerivados)
-            {
-                if (Padre != null)
-                {
-                    //if (!Padre.Estado.Equals(estado))
-                    //{
-                        /*if (mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] == 0)
-                        {*/
-                        NodoPF node = new NodoPF(estado, this);
-                        node.gCost = Padre.gCost + 1;
-                        node.hCost = Distance.EuclideanDistance(estado.Position, PathFinding.final.Estado.Position);
-                        nodosExpandidos.Add(node);
-                        //mapNodeStatus[(int)estado.Position.x, (int)estado.Position.y] = 1;
-                        //}
-                    //}
-                }
-                else
-                {
+            foreach (var estado in estadosDerivados){
+                if (Padre != null){
+                    NodoPF node = new NodoPF(estado, this);
+                    node.gCost = Padre.gCost + 1;
+                    node.hCost = Distance.EuclideanDistance(estado.Position, PathFinding.final.Estado.Position);
+                    nodosExpandidos.Add(node);
+                }else{
                     NodoPF node = new NodoPF(estado, this);
                     node.gCost += 1;
                     node.hCost = Distance.EuclideanDistance(estado.Position, PathFinding.final.Estado.Position);
