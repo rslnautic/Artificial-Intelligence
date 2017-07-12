@@ -50,38 +50,29 @@ public class Strips : MonoBehaviour {
     }
 
 	public ResultadoStrips Search(State currentState, List<string> goals, List<Operator> plan) {
-        ResultadoStrips resultado; 
-        while (!currentState.Contains(goals))
-        {
+        ResultadoStrips resultado;
+        while (!currentState.Contains(goals)){
             // (1) elegimos property
-            foreach(string property in goals)
-            {
-                if(!currentState.properties.Contains(property))
-                {
+            foreach(string property in goals){
+                if(!currentState.properties.Contains(property)){
                     List<Operator> operatorsThatProduceProperty = getOperatorsWithProperty(property);
-                    foreach(Operator oprtr in operatorsThatProduceProperty)
-                    {
+                    foreach(Operator oprtr in operatorsThatProduceProperty){
                         // (3)
-                        
                         resultado = Search(currentState, oprtr.getPreconditionList(), plan);
                         currentState = resultado.sMeta;
                         plan = resultado.planMeta;
-                        if (!resultado.hayPlan)
-                        {
-                            return null;
-                        }
-                        else
-                        {
+                        if (!resultado.hayPlan){
+                            //return null;
+                        }else{
                             resultado.sMeta = oprtr.Apply(currentState);
                             resultado.planMeta = plan;
                             resultado.planMeta.Add(oprtr);
                         }
-                        
                     }
                 }
             }
         }
-        return resultado;
+        //return resultado;
     }
 
 	public List<Operator> getOperatorsWithProperty(string property) {
