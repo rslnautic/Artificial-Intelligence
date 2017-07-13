@@ -35,9 +35,9 @@ public class PathFinding {
                     normal.Add(n);
                     n = n.Padre;
                 }
-                for(int i = normal.Count; i > 0; i--)
+                for(int i = normal.Count-1; i > 0; i--)
                 {
-                    reversed.Add(normal[i-1]);
+                    reversed.Add(normal[i]);
                 }
                 return reversed;
             }

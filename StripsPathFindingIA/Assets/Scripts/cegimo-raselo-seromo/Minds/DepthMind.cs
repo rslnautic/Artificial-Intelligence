@@ -10,7 +10,7 @@ public class DepthMind : IMind{
         _busqueda = new BusquedaProfundidad();
     }
 
-    public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map){
+    public Move.MoveDirection GetNextMove(Vector2 currentPos, Vector2 endPos, GenerateMap map){
         if (_resultado == null){
             // Initialize the matrix to 0 if it isn´t allready
             // (this matrix represents the map and ensures the quality of the breadth algorithm. It maps the allready accessed nodes with a 1)

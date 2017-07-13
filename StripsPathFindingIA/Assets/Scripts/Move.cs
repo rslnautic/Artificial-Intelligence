@@ -23,7 +23,8 @@ public class Move : MonoBehaviour
     }
 
     public MindType mind;
-    public Vector2 end;
+    public bool planning;
+    public Vector2 end = Vector2.zero;
     private Rigidbody2D rb;
     public float speed=1.0f;
     private GameManager gameManager;
@@ -145,7 +146,8 @@ public class Move : MonoBehaviour
         {
             MoveNeed = false;
             Vector2 pos = Vector2.Lerp(transform.position, end, Time.deltaTime*speed);
-            rb.MovePosition(pos);
+            //rb.MovePosition(pos);
+            this.transform.position = end;
             
         }
         else
@@ -163,7 +165,31 @@ public class Move : MonoBehaviour
                     if (MoveNeed)
                     {
                         last = new Vector2(end.x, end.y);
-                        MoveDirection dir = MindController.GetNextMove(end, gameManager.Map);
+                        MoveDirection dir;
+                        if(planning)
+                        {
+                            if(Strips.plan.Count != 0)
+                            {
+                                if (end == Strips.plan[0].position)
+                                {
+                                    Strips.plan.RemoveAt(0);
+                                }
+                                dir = MindController.GetNextMove(end, Strips.plan[0].position, gameManager.Map);
+                            } else
+                            {
+                                dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1), gameManager.Map);
+                            }
+                            /*foreach (Operator op in Strips.plan)
+                            {
+                                if (end == op.position)
+                                {
+                                    Strips.plan.Remove(op);
+                                }
+                            }*/
+                        } else
+                        {
+                            dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1), gameManager.Map);
+                        }
                         if (dir == MoveDirection.Left)
                         {
                             MoveLeft();

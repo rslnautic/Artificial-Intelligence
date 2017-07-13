@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RandomMind : IMind {
-    public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map)
+    public Move.MoveDirection GetNextMove(Vector2 currentPos, Vector2 endPos, GenerateMap map)
     {
         int val = Random.Range(0, 4);
         if (val == 0) return Move.MoveDirection.Up;

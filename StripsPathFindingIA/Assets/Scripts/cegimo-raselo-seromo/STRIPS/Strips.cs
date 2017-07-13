@@ -5,8 +5,10 @@ using UnityEngine;
 public class Strips : MonoBehaviour {
 	public State initialState;
 	public State goal;
+    public static List<Operator> plan;
 
-	public List<Operator> validOperators;
+
+    public List<Operator> validOperators;
 
     public struct ResultadoStrips
     {
@@ -17,8 +19,7 @@ public class Strips : MonoBehaviour {
 
 	void Start() {
         Init();
-        List<Operator> plan = new List<Operator>();
-        ResultadoStrips res = Search(initialState, goal.properties, plan);
+        plan = Search(initialState, goal.properties);
     }
 
     private void Init()
@@ -51,47 +52,33 @@ public class Strips : MonoBehaviour {
         }
     }
 
-	public ResultadoStrips Search(State currentState, List<string> goals, List<Operator> plan) {
-        ResultadoStrips resultado = new ResultadoStrips();
-        resultado.state = new State(currentState.properties);
-        resultado.plan = new List<Operator>();
-        foreach(Operator op in plan)
-        {
-            resultado.plan.Add(op);
-        }
-        resultado.hayPlan = false;
+	public List<Operator> Search(State currentState, List<string> goals) {
+        List<Operator> plan = new List<Operator>();
 
         while (!currentState.Contains(goals)){
-            // (1) elegimos property
             foreach(string property in goals){
                 if(!currentState.Contains(property)){
-                    // (2) elegimos el operador
                     List<Operator> operatorsThatProduceProperty = getOperatorsWithProperty(property);
                     if (operatorsThatProduceProperty.Count == 0)
-                    {
-                        // Creemos que se tiene que hacer así. No entendemos muy bien "Entonces falla", 
-                        // o si tenemos que devolver algo o no, o hay que hacer otra cosa 
-                        resultado.hayPlan = false;
-                        break;
-                    } else
-                    {
-                        resultado.hayPlan = true;
-                    }
-                    Operator oprtr;
-                    foreach (Operator operador in operatorsThatProduceProperty){
-                        resultado = Search(resultado.state, operador.getPreconditionList(), resultado.plan);
-                        if(resultado.hayPlan)
+                        return null;
+ 
+                    foreach (Operator oprtr in operatorsThatProduceProperty){
+                        List<Operator> primePlan = Search(currentState, oprtr.getPreconditionList());
+                        if (primePlan == null)
+                            return null;
+                        foreach (Operator op in primePlan)
                         {
-                            break;
+                            op.Apply(currentState);
+                            plan.Add(op);
                         }
-
+                            
+                        oprtr.Apply(currentState);
+                        plan.Add(oprtr);
                     }
-                    oprtr.Apply(resultado.state); // aplicamos directamente el operador al resultado.state
-                    resultado.plan.Add(oprtr); // añadimos directamente a resultado.plan el operador
                 }
             }
         }
-        return resultado;
+        return plan;
     }
 
 	public List<Operator> getOperatorsWithProperty(string property) {

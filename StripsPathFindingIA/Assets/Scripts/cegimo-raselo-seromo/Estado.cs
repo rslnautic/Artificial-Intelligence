@@ -29,7 +29,7 @@ namespace Assets.Scripts
 			}
         }
 
-		private bool isPositionInMap(Vector2 position) {
+        private bool isPositionInMap(Vector2 position) {
             try
             {
                 if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows) 

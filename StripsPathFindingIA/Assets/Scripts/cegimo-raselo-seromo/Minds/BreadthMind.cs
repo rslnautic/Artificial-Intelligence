@@ -5,6 +5,7 @@ public class BreadthMind : IMind {
 	
 	private BusquedaAmplitud _busqueda;
 	private Nodo _resultado = null;
+    private Vector2? _lastEndPos = null;
 
     private Move move;
 
@@ -13,18 +14,16 @@ public class BreadthMind : IMind {
         _busqueda = new BusquedaAmplitud();
     }
 
-	public Move.MoveDirection GetNextMove(Vector2 currentPos, GenerateMap map){
-		if(_resultado == null){
-            // Initialize the matrix to 0 if it isn´t allready
-            // (this matrix represents the map and ensures the quality of the breadth algorithm. It maps the allready accessed nodes with a 1)
+	public Move.MoveDirection GetNextMove(Vector2 currentPos, Vector2 endPos, GenerateMap map){
+		if(_resultado == null || _lastEndPos != endPos){
             if(Nodo.mapNodeStatus == null){
                 Nodo.mapNodeStatus = new byte[map.cols,map.rows];
             }
-            _resultado = _busqueda.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right));
-            return _resultado.Estado.Accion;
+            _resultado = _busqueda.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right), new Estado(endPos, map, Move.MoveDirection.Right));
+            _lastEndPos = endPos;
         }else{
             _resultado = _resultado.Padre;
-            return _resultado.Estado.Accion;
         }
-	}
+        return _resultado.Estado.Accion;
+    }
 }
