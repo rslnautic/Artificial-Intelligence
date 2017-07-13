@@ -16,14 +16,22 @@ public class State {
 	}
 
     public bool Contains(List<string> ptrs)
-    {
-        foreach(string property in ptrs)
+    {   if(properties.Count != 0 && ptrs.Count != 0)
         {
-            if(!properties.Contains(property))
+            foreach (string property in ptrs)
             {
-                return false;
+                if (!properties.Contains(property))
+                {
+                    return false;
+                }
             }
-        }
-        return true;
+            return true;
+        } 
+        return false;
+    }
+
+    public bool Contains(string ptr)
+    {
+        return properties.Contains(ptr);
     }
 }
