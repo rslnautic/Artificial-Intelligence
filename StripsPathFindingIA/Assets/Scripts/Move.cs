@@ -19,7 +19,9 @@ public class Move : MonoBehaviour
 
     public enum MindType
     {
+        
         Breadth,
+        //Depth,
         PathFinding
     }
 
@@ -36,20 +38,24 @@ public class Move : MonoBehaviour
 
     public bool keyControl = false;
     private float cooldown = 1.0f;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        Array values = Enum.GetValues(typeof(MindType));
+        /*Array values = Enum.GetValues(typeof(MindType));
         System.Random random = new System.Random();
         mind = (MindType)values.GetValue(random.Next(values.Length));
-
+        mind = MindType.PathFinding;*/
         switch (mind)
         {
             case MindType.Breadth:
                 MindController = BreadthMind.getBreathMind();
                 break;
+            /*case MindType.Depth:
+                MindController = DepthMind.getDepthMind();
+                break;*/
             case MindType.PathFinding:
                 MindController = PathfindingMind.getPathfindingMind();
                 break;
@@ -63,7 +69,7 @@ public class Move : MonoBehaviour
     {
         if(this.GetComponent<Strips>() == null)
         {
-            Debug.LogError("Falta el componente strips en el GameObject, por favor añadelo!!!");
+            Debug.LogError("Falta el componente strips en el GameObject, por favor añadelo al GameObject character y situa el componente encima de Move component!!!");
             if(Application.isEditor)
             {
                 Debug.LogError("Cerrando Editor hasta que solucione los errores!!!");
@@ -155,7 +161,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (gameManager == null)
         {
             var gO = GameObject.Find("GameManager") as GameObject;
@@ -190,15 +196,6 @@ public class Move : MonoBehaviour
                             if(Strips.plan.Count != 0 && end == Strips.plan[0].position)
                             {
                                 Strips.plan.RemoveAt(0);
-                            } else
-                            {
-                                for (int i = 0; i < Strips.plan.Count; i++)
-                                {
-                                    if (end == Strips.plan[i].position)
-                                    {
-                                        Strips.plan.RemoveAt(i);
-                                    }
-                                }
                             }
 
                             if (Strips.plan.Count != 0)

@@ -13,6 +13,7 @@ public class Strips : MonoBehaviour {
         {
             Init();
             plan = Search(initialState, goal.properties);
+            int a = 7;
         }
     }
 
