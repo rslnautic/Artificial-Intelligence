@@ -10,6 +10,7 @@ namespace Completed
         public int seed = 2016;
         void Awake()
         {
+            seed = Random.Range(1, 5000);
             //Check if a GameManager has already been assigned to static variable GameManager.instance or if it's still null
             if (GameManager.instance == null)
             {
@@ -21,8 +22,6 @@ namespace Completed
                 manager.seed = seed;
                 manager.InitGame();
             }
-
-
         }
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class PathFinding {
 
     public List<NodePathFinding> Abiertos { get; set; }
-    public static NodePathFinding inicial;
-    public static NodePathFinding final;
+    public static NodePathFinding inicial = null;
+    public static NodePathFinding final = null;
 
     public PathFinding()
     {
@@ -27,21 +27,21 @@ public class PathFinding {
             NodePathFinding actual = Abiertos.First();
             Abiertos.RemoveAt(0);
 
-            if (actual.Estado.Position == final.Estado.Position)
+            if (EsMeta(actual))
             {
-                NodePathFinding n = actual;
                 List<NodePathFinding> normal = new List<NodePathFinding>();
-                List<NodePathFinding> reversed = new List<NodePathFinding>();
-                while (n != null)
+                List<NodePathFinding> steps = new List<NodePathFinding>();
+                while (actual != null)
                 {
-                    normal.Add(n);
-                    n = n.Padre;
+                    normal.Add(actual);
+                    actual = actual.Padre;
                 }
                 for(int i = normal.Count-1; i >= 0; i--)
                 {
-                    reversed.Add(normal[i]);
+                    steps.Add(normal[i]);
                 }
-                return reversed;
+                Reset();
+                return steps;
             }
             List<NodePathFinding> actualExpandido = actual.Expandir();
             foreach (var nodo in actualExpandido)
@@ -53,13 +53,15 @@ public class PathFinding {
         return null;
     }
 
-    /*void ShortedInsert(NodoPF node)
-    {
-
-    }*/
-
     public bool EsMeta(NodePathFinding actual)
     {
         return actual.Estado.Position == final.Estado.Position;
+    }
+
+    public void Reset()
+    {
+        Abiertos.Clear();
+        inicial = null;
+        final = null;
     }
 }

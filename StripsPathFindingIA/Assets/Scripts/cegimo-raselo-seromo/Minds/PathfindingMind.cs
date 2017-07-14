@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts;
 
 public class PathfindingMind : IMind {
 
@@ -37,9 +34,9 @@ public class PathfindingMind : IMind {
         }
         if(_resultados.Count != 0)
         {
-            NodePathFinding n = _resultados[0];
+            NodePathFinding nextMoveNode = _resultados[0];
             _resultados.RemoveAt(0);
-            return n.Estado.Accion;
+            return nextMoveNode.Estado.Accion;
         } else
         {
             return Move.MoveDirection.None;

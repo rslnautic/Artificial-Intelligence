@@ -18,8 +18,11 @@ public class Strips : MonoBehaviour {
     }
 
 	void Start() {
-        Init();
-        plan = Search(initialState, goal.properties);
+        if(GameManager.instance.ForPlanner)
+        {
+            Init();
+            plan = Search(initialState, goal.properties);
+        }
     }
 
     private void Init()

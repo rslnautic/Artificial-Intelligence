@@ -3,7 +3,7 @@ using System.Collections;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using Completed;
-
+using System;
 
 public class Move : MonoBehaviour
 {
@@ -18,16 +18,15 @@ public class Move : MonoBehaviour
 
     public enum MindType
     {
-        Random,
         Breadth,
         PathFinding
     }
 
     public MindType mind;
-    public bool planning;
-    public Vector2 end = Vector2.zero;
+    public Vector2 end;
+    public float speed = 1.0f;
+
     private Rigidbody2D rb;
-    public float speed=1.0f;
     private GameManager gameManager;
 
     private Vector2 last;
@@ -41,12 +40,12 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        //MindController = new PathfindingMind();
+        Array values = Enum.GetValues(typeof(MindType));
+        System.Random random = new System.Random();
+        mind = (MindType)values.GetValue(random.Next(values.Length));
+
         switch (mind)
         {
-            case MindType.Random:
-                MindController = new RandomMind();
-                break;
             case MindType.Breadth:
                 MindController = BreadthMind.getBreathMind();
                 break;
@@ -64,7 +63,7 @@ public class Move : MonoBehaviour
         if (end.x == 0)
             return;
         end += Vector2.left;
-        Debug.Log("Left\n");
+        Debug.Log("Celda" + last + "->Left\n");
     }
 
     public void MoveUp()
@@ -72,7 +71,7 @@ public class Move : MonoBehaviour
         if (end.y == gameManager.Map.rows)
             return;
         end += Vector2.up;
-        Debug.Log("Up\n");
+        Debug.Log("Celda" + last + "->Up\n");
     }
 
     public void MoveDown()
@@ -80,7 +79,7 @@ public class Move : MonoBehaviour
         if (end.y == 0)
             return;
         end += Vector2.down;
-        Debug.Log("Down\n");
+        Debug.Log("Celda" + last + "->Down\n");
     }
 
     public void MoveRight()
@@ -88,7 +87,7 @@ public class Move : MonoBehaviour
         if (end.y == gameManager.Map.cols)
             return;
         end += Vector2.right;
-        Debug.Log("Right\n");
+        Debug.Log("Celda" + last + "->Right\n");
     }
 
     public void KeyControl()
@@ -133,6 +132,8 @@ public class Move : MonoBehaviour
             }
     }
 
+    Vector2 goalPos;
+
     // Update is called once per frame
     void Update()
     {
@@ -141,15 +142,14 @@ public class Move : MonoBehaviour
         {
             var gO = GameObject.Find("GameManager") as GameObject;
             gameManager = gO.GetComponent<GameManager>();
+            goalPos = new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1);
         }
             
         if (!AtDestination())
         {
             MoveNeed = false;
             Vector2 pos = Vector2.Lerp(transform.position, end, Time.deltaTime*speed);
-            //rb.MovePosition(pos);
-            this.transform.position = end;
-            
+            rb.MovePosition(pos);
         }
         else
         {
@@ -167,30 +167,34 @@ public class Move : MonoBehaviour
                     {
                         last = new Vector2(end.x, end.y);
                         MoveDirection dir;
-                        if(planning)
+                        if(GameManager.instance.ForPlanner)
                         {
-                            if(Strips.plan.Count != 0)
+                            if(Strips.plan.Count != 0 && end == Strips.plan[0].position)
                             {
-                                if (end == Strips.plan[0].position)
-                                {
-                                    Strips.plan.RemoveAt(0);
-                                }
-                                dir = MindController.GetNextMove(end, Strips.plan[0].position);
+                                Strips.plan.RemoveAt(0);
                             } else
                             {
-                                dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1));
-                            }
-                            /*foreach (Operator op in Strips.plan)
-                            {
-                                if (end == op.position)
+                                for (int i = 0; i < Strips.plan.Count; i++)
                                 {
-                                    Strips.plan.Remove(op);
+                                    if (end == Strips.plan[i].position)
+                                    {
+                                        Strips.plan.RemoveAt(i);
+                                    }
                                 }
-                            }*/
+                            }
+
+                            if (Strips.plan.Count != 0)
+                            {
+                                dir = MindController.GetNextMove(end, Strips.plan[0].position);
+                            }
+                            else {
+                                dir = MindController.GetNextMove(end, goalPos);
+                            }
                         } else
                         {
                             dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1));
                         }
+
                         if (dir == MoveDirection.Left)
                         {
                             MoveLeft();
@@ -208,7 +212,6 @@ public class Move : MonoBehaviour
                             MoveRight();
                         }
                     }
-                    
                 }
                     
             }

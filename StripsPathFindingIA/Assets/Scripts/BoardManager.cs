@@ -61,6 +61,8 @@ public class BoardManager : MonoBehaviour
     //Sets up the outer walls and floor (background) of the game board.
     void BoardSetup(int seed)
     {
+        //columns = Random.RandomRange(8, columns);
+        //rows = Random.RandomRange(8, rows);
         Random.InitState(seed);
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;

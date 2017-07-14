@@ -42,7 +42,7 @@ namespace Assets.Scripts
             return nodosExpandidos;
         }
 
-        /*public override string ToString()
+        public override string ToString()
         {
 			var resultado = string.Format(" E: ({0}) despues de {1}\n", Estado.Position, Estado.Accion);
             if (Padre != null)
@@ -50,6 +50,6 @@ namespace Assets.Scripts
                 resultado = Padre + resultado;
             }
             return resultado;
-        }*/
+        }
     }
 }
