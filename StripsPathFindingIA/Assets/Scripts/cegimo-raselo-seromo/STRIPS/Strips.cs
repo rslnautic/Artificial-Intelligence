@@ -6,16 +6,7 @@ public class Strips : MonoBehaviour {
 	public State initialState;
 	public State goal;
     public static List<Operator> plan;
-
-
     public List<Operator> validOperators;
-
-    public struct ResultadoStrips
-    {
-        public State state;
-        public List<Operator> plan;
-        public bool hayPlan;
-    }
 
 	void Start() {
         if(GameManager.instance.ForPlanner)

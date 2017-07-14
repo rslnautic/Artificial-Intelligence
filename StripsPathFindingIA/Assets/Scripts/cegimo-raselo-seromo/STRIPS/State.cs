@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class State {
 	public List<string> properties;
@@ -15,24 +13,16 @@ public class State {
 		properties = new List<string> (listOfProperties);
 	}
 
-    public bool Contains(List<string> ptrs)
-    {
-        if(properties.Count == 0 || ptrs.Count == 0)
-        {
-            int a = 5;
-        }
-        foreach (string property in ptrs)
-        {
-            if (!properties.Contains(property))
-            {
+    public bool Contains(List<string> ptrs){
+        foreach (string property in ptrs){
+            if (!properties.Contains(property)){
                 return false;
             }
         }
         return true;
     }
 
-    public bool Contains(string ptr)
-    {
+    public bool Contains(string ptr){
         return properties.Contains(ptr);
     }
 }

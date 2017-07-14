@@ -24,25 +24,20 @@ public abstract class Operator {
     //Aplica el operador al mundo, cambiando así sus propiedades
     //Añade y elimina propiedades para cambiar su estado
 	public State Apply(State state){
-        // Opción 1: Clonamos object state, aplicamos y devolvemos copia
-        /*State s = new State(state.properties);
-		Delete(s);
-		Add(s);
-		return s;*/
-
-        // Opción 2: aplicamos a state y ya, devolvemos state por la opción 1, con poner public void bastaría
         Delete(state);
         Add(state);
         return state;
     }
 
 	private void Delete(State state) {
-        //Elimina las propiedades del estado (que forman el mundo de ese estado) contenidas en la lista de eliminaciones del operador.
+        //Elimina las propiedades del estado (que forman el mundo de ese estado)
+        //contenidas en la lista de eliminaciones del operador.
 		state.properties.RemoveAll(item => _eliminationsList.Contains(item));
 	}
 
     private void Add(State state) {
-        //Añade las propiedades del estado (que forman el mundo de ese estado) contenidas en la lista de eliminaciones del operador.
+        //Añade las propiedades del estado (que forman el mundo de ese estado)
+        //contenidas en la lista de eliminaciones del operador.
         state.properties.AddRange(_addList);
 	}
 

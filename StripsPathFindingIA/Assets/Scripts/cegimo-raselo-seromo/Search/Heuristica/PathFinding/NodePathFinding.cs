@@ -15,10 +15,7 @@ public class NodePathFinding : Node<NodePathFinding>
         }
     }
 
-    public NodePathFinding(Estado e, NodePathFinding padre) : base(e, padre)
-    {
-            
-    }
+    public NodePathFinding(Estado e, NodePathFinding padre) : base(e, padre) {}
 
     public override List<NodePathFinding> Expandir(){
         List<Estado> estadosDerivados = Estado.Expandir();
@@ -38,14 +35,4 @@ public class NodePathFinding : Node<NodePathFinding>
         }
         return nodosExpandidos;
     }
-
-    /*public override string ToString()
-    {
-        var resultado = string.Format(" E: ({0}) despues de {1}\n", Estado.Position, Estado.Accion);
-        if (Padre != null)
-        {
-            resultado = Padre + resultado;
-        }
-        return resultado;
-    }*/
 }
