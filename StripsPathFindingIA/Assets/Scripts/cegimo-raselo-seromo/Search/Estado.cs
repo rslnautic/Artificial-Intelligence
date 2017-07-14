@@ -9,20 +9,19 @@ namespace Assets.Scripts
     public class Estado
     {
 		public Vector2 Position { get; set; }
-		public GenerateMap Map { get; set; }
 		public Move.MoveDirection Accion { get; set; }
 
-		public Estado(Vector2 _currentPosition, GenerateMap _map, Move.MoveDirection _accion)
+		public Estado(Vector2 _currentPosition, Move.MoveDirection _accion)
         {
 			Position = _currentPosition;
-			Map = _map;
             Accion = _accion;
         }
 
-        public bool EsMeta()
+        public bool EsMeta(Estado meta)
         {
-			if (isPositionInMap(Position)) {
-                GenerateMap.TileType currentTile = Map.GetTile((int)Position.y, (int)Position.x);
+            //return isPositionInMap(Position) && Position == meta.Position;
+            if (isPositionInMap(Position)) {
+                GenerateMap.TileType currentTile = GameManager.instance.Map.GetTile((int)Position.y, (int)Position.x);
                 return currentTile == GenerateMap.TileType.Goal;
 			} else {
 				return false;
@@ -32,8 +31,8 @@ namespace Assets.Scripts
         private bool isPositionInMap(Vector2 position) {
             try
             {
-                if ((position.x >= 0 && position.x < Map.cols) && (position.y >= 0 && position.y < Map.rows) 
-                    && Map.GetTile((int) position.y, (int) position.x) != GenerateMap.TileType.Wall)
+                if ((position.x >= 0 && position.x < GameManager.instance.Map.cols) && (position.y >= 0 && position.y < GameManager.instance.Map.rows) 
+                    && GameManager.instance.Map.GetTile((int) position.y, (int) position.x) != GenerateMap.TileType.Wall)
                 {
                     return true;
                 }
@@ -85,22 +84,22 @@ namespace Assets.Scripts
             Estado estado;
 
 			// Move UP
-			estado = new Estado(Position + Vector2.up, Map, Move.MoveDirection.Up);
+			estado = new Estado(Position + Vector2.up, Move.MoveDirection.Up);
 			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Down
-			estado = new Estado(Position + Vector2.down, Map, Move.MoveDirection.Down);
+			estado = new Estado(Position + Vector2.down, Move.MoveDirection.Down);
 			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Left
-			estado = new Estado(Position + Vector2.left, Map, Move.MoveDirection.Left);
+			estado = new Estado(Position + Vector2.left, Move.MoveDirection.Left);
 			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}
 			// Move Right
-			estado = new Estado(Position + Vector2.right, Map, Move.MoveDirection.Right);
+			estado = new Estado(Position + Vector2.right, Move.MoveDirection.Right);
 			if (!estado.Equals (this) && CanMoveToDirection (estado.Accion)) {
 				estadosExpandidos.Add (estado);
 			}

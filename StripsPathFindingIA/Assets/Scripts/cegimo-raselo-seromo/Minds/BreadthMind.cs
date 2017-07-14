@@ -2,27 +2,41 @@
 using Assets.Scripts;
 
 public class BreadthMind : IMind {
-	
+
+    private static BreadthMind instance = null;
 	private BusquedaAmplitud _busqueda;
-	private Nodo _resultado = null;
+	private NodeSearch _resultado = null;
     private Vector2? _lastEndPos = null;
+    
 
-    private Move move;
-
-    public BreadthMind()
+    public static BreadthMind getBreathMind()
     {
+        if(instance != null)
+        {
+            return instance;
+        } else
+        {
+            return new BreadthMind();
+        }
+    }
+
+    private BreadthMind()
+    {   
         _busqueda = new BusquedaAmplitud();
     }
 
-	public Move.MoveDirection GetNextMove(Vector2 currentPos, Vector2 endPos, GenerateMap map){
+	public Move.MoveDirection GetNextMove(Vector2 currentPos, Vector2 endPos){
 		if(_resultado == null || _lastEndPos != endPos){
-            if(Nodo.mapNodeStatus == null){
-                Nodo.mapNodeStatus = new byte[map.cols,map.rows];
-            }
-            _resultado = _busqueda.Buscar(new Estado(currentPos, map, Move.MoveDirection.Right), new Estado(endPos, map, Move.MoveDirection.Right));
+            _resultado = _busqueda.Buscar(currentPos, endPos);
             _lastEndPos = endPos;
         }else{
-            _resultado = _resultado.Padre;
+            if(_resultado.Padre != null)
+            {
+                _resultado = _resultado.Padre;
+            } else
+            {
+                return Move.MoveDirection.None;
+            }
         }
         return _resultado.Estado.Accion;
     }

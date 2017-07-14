@@ -9,6 +9,7 @@ public class Move : MonoBehaviour
 {
     public enum MoveDirection
     {
+        None,
         Up,
         Down,
         Left,
@@ -47,10 +48,10 @@ public class Move : MonoBehaviour
                 MindController = new RandomMind();
                 break;
             case MindType.Breadth:
-                MindController = new BreadthMind();
+                MindController = BreadthMind.getBreathMind();
                 break;
             case MindType.PathFinding:
-                MindController = new PathfindingMind();
+                MindController = PathfindingMind.getPathfindingMind();
                 break;
             default:
                 MindController = new RandomMind();
@@ -174,10 +175,10 @@ public class Move : MonoBehaviour
                                 {
                                     Strips.plan.RemoveAt(0);
                                 }
-                                dir = MindController.GetNextMove(end, Strips.plan[0].position, gameManager.Map);
+                                dir = MindController.GetNextMove(end, Strips.plan[0].position);
                             } else
                             {
-                                dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1), gameManager.Map);
+                                dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1));
                             }
                             /*foreach (Operator op in Strips.plan)
                             {
@@ -188,7 +189,7 @@ public class Move : MonoBehaviour
                             }*/
                         } else
                         {
-                            dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1), gameManager.Map);
+                            dir = MindController.GetNextMove(end, new Vector2(gameManager.Map.cols - 1, gameManager.Map.rows - 1));
                         }
                         if (dir == MoveDirection.Left)
                         {

@@ -8,7 +8,7 @@ namespace Assets.Scripts
 {
     public class EstadoProfundidad
     {
-        public Vector2 Position { get; set; }
+        /*public Vector2 Position { get; set; }
         public GenerateMap Map { get; set; }
         public Move.MoveDirection Accion { get; set; }
 
@@ -54,13 +54,13 @@ namespace Assets.Scripts
         }
 
         public override bool Equals(object obj)
-        {
-            var other = obj as Estado;
-            return other != null && (Position == other.Position /*&& Map == other.Map && Accion == other.Accion*/);
+         {
+             var other = obj as Estado;
+             return other != null && (Position == other.Position ); // && Map == other.Map && Accion == other.Accion
 
         }
 
-        public bool CanMoveToDirection(Move.MoveDirection moveDirection){
+    public bool CanMoveToDirection(Move.MoveDirection moveDirection){
             Vector2 nextPosition = Position;
             switch (moveDirection)
             {
@@ -95,6 +95,6 @@ namespace Assets.Scripts
             // Move Right
             else if (!estadoRight.Equals(this) && CanMoveToDirection(estadoRight.Accion)) return estadoRight;
             else return null;
-        }
+        }*/
     }
 }
