@@ -44,10 +44,10 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        /*Array values = Enum.GetValues(typeof(MindType));
+        Array values = Enum.GetValues(typeof(MindType));
         System.Random random = new System.Random();
         mind = (MindType)values.GetValue(random.Next(values.Length));
-        mind = MindType.PathFinding;*/
+        mind = MindType.PathFinding;
         switch (mind)
         {
             case MindType.Breadth:
