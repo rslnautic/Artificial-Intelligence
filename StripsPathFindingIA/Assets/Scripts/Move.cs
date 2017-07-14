@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using Completed;
 using System;
 
+[RequireComponent(typeof(Strips))]
 public class Move : MonoBehaviour
 {
     public enum MoveDirection
@@ -55,6 +56,23 @@ public class Move : MonoBehaviour
             default:
                 MindController = new RandomMind();
                 break;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if(this.GetComponent<Strips>() == null)
+        {
+            Debug.LogError("Falta el componente strips en el GameObject, por favor añadelo!!!");
+            if(Application.isEditor)
+            {
+                Debug.LogError("Cerrando Editor hasta que solucione los errores!!!");
+                UnityEditor.EditorApplication.isPlaying = false;
+            } else
+            {
+                Debug.LogError("Cerrando ejecutable hasta que solucione los errores!!!");
+                Application.Quit();
+            }
         }
     }
 
